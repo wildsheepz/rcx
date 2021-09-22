@@ -1384,11 +1384,11 @@ public class VirtualContentProvider extends SingleRootProvider {
      */
     synchronized void reloadRemotesIfRequired() {
         synchronized (configFile) {
-            long lastModified = configFile.lastModified();
-            if (lastModified > configModifiedTimestamp) {
-                configModifiedTimestamp = lastModified;
+//            long lastModified = configFile.lastModified();
+//            if (lastModified > configModifiedTimestamp) {
+//                configModifiedTimestamp = lastModified;
                 FLog.d(TAG, "reloadRemotesIfRequired(): requesting new remote config data");
-                Set<String> oldRemotes = remotes.keySet();
+                List<String> oldRemotes = new ArrayList(remotes.keySet());
                 for (RemoteItem remoteItem : rclone.getRemotes()) {
                     remotes.put(remoteItem.getName(), remoteItem);
                 }
@@ -1400,7 +1400,7 @@ public class VirtualContentProvider extends SingleRootProvider {
                     remotes.remove(oldRemote);
                 }
                 FLog.v(TAG, "reloadRemotesIfRequired(): remote config data updated");
-            }
+//            }
         }
     }
 
