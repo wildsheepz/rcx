@@ -1296,7 +1296,7 @@ public class VirtualContentProvider extends SingleRootProvider {
             } catch (IOException e) {
                 throw new IllegalArgumentException();
             }
-        } else if ("w".equals(mode) || "wt".equals(mode)) {
+        } else if ("w".equals(mode) || "wt".equals(mode) || "rw".equals(mode) || "rwt".equals(mode)) {
             ParcelFileDescriptor consumer;
             ParcelFileDescriptor producer;
             try {
